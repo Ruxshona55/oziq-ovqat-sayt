@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Taomlar Dunyosi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #fffaf5;
+      color: #333;
+    }
+
+    header, footer {
+      background: linear-gradient(45deg, #ff7043, #ff8a65);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 12px;    
+}
+
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 30px 15px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Bosh sahifa dizayni */
+    .enhanced-home {
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+      padding: 40px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      max-width: 700px;
+      margin: 40px auto;
+      transition: all 0.3s ease;
+    }
+
+    .enhanced-home h2 {
+      font-size: 32px;
+      color: #e65100;
+      margin-bottom: 10px;
+    }
+
+    .enhanced-home p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .home-image {
+      border-radius: 12px;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .enhanced-home button {
+      background: #ff7043;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .enhanced-home button:hover {
+      background: #e64a19;
+    }
+
+    .recipe-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .recipe-card {
+      width: 240px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .recipe-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .recipe-card h3 {
+      padding: 15px;
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .recipe-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 25px;
+    }
+
+    ul {
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #ff7043;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #ff5722;
+    }
+
+    @media (max-width: 600px) {
+      .recipe-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍲 Taomlar Dunyosi</h1>
+    <nav>
+      <a onclick="showPage('home')">Bosh sahifa</a>
+      <a onclick="showPage('recipes')">Retseptlar</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Bosh sahifa -->
+    <section id="home">
+      <div class="intro enhanced-home">
+        <h2>🍛 Mazali Retseptlar Dunyosiga Xush Kelibsiz!</h2>
+        <p>Bu yerda siz har kuni yangi taomlar, foydali maslahatlar va pishirish texnikalarini topasiz.</p>
+        <img src="./milliy taomlar.webp" alt="Mazali Taomlar" class="home-image" />
+        <br>
+        <button onclick="showPage('recipes')">🍽 Retseptlarni ko‘rish</button>
+      </div>
+    </section>
+
+    <!-- Retseptlar sahifasi -->
+    <section id="recipes" class="hidden">
+      <div class="recipe-list">
+        <div class="recipe-card" onclick="showRecipe('plov')">
+          <img src="./palov rasmi.jpg" alt="Plov" />
+          <h3>O'zbekcha Plov</h3>
+        </div>
+        <div class="recipe-card" onclick="showRecipe('somsa')">
+          <img src="./somsa rasmi.webp" alt="Somsa" />
+          <h3>Go'shtli Somsa</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLOV retsepti -->
+    <section id="recipe-plov" class="hidden">
+      <h2>O'zbekcha Plov</h2>
+      <img src="./palov rasmi.jpg" alt="Plov" class="recipe-image" />
+      <h3>Kerakli mahsulotlar:</h3>
+      <ul>
+        <li>1 kg guruch</li>
+        <li>500 g go‘sht</li>
+        <li>3 dona sabzi</li>
+        <li>2 bosh piyoz</li>
+        <li>Yog‘, tuz, ziravorlar</li>
+      </ul>
+      <h3>Tayyorlanishi:</h3>
+      <p>Go‘shtni qovuring, piyoz va sabzini qo‘shing. Suv soling, guruchni ustiga qo‘ying va past olovda damlab pishiring.</p>
+      <button onclick="showPage('recipes')">⬅ Ortga</button>
+    </section>
+
+    <!-- SOMSA retsepti -->
+    <section id="recipe-somsa" class="hidden">
+      <h2>Go'shtli Somsa</h2>
+      <img src="./somsa rasmi.webp" alt="Somsa" class="recipe-image" />
+      <h3>Kerakli mahsulotlar:</h3>
+      <ul>
+        <li>500 g un</li>
+        <li>300 g go‘sht</li>
+        <li>2 dona piyoz</li>
+        <li>Yog‘, tuz, ziravorlar</li>
+      </ul>
+      <h3>Tayyorlanishi:</h3>
+      <p>Xamir qorib dam oldiring. Go‘sht va piyozni maydalab, xamirga solib, somsalar yasang va tandirda yoki pechda pishiring.</p>
+      <button onclick="showPage('recipes')">⬅ Ortga</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Taomlar Dunyosi | Ruxshona  tomonidan yaratilgan</p>
+  </footer>
+
+  <script>
+    function showPage(page) {
+      const pages = ['home', 'recipes', 'recipe-plov', 'recipe-somsa'];
+      pages.forEach(p => {
+        document.getElementById(p).classList.add('hidden');
+      });
+      document.getElementById(page).classList.remove('hidden');
+    }
+
+    function showRecipe(name) {
+      showPage('recipe-' + name);
+    }
+
+    window.onload = function() {
+      showPage('home');
+    };
+  </script>
+</body>
+</html>
+
+ 
